@@ -34,20 +34,18 @@ int prepare_socket(char* ip_address){
  * IPv4 dotted-decimal form
  */
 int check_ip_format(char* ip_address){
-    int cnt = 1;
     int is_valid = 1;
 
     if(strlen(ip_address) == 15){
         while(*ip_address != '\0'){
-            if(cnt % 4 == 0 && *ip_address != '.'){
+            if(*ip_address != '.' || (*ip_address - '0' < 0 || *ip_address > '9')){
                 is_valid = 0;
             }
-            else{
-                if(*ip_address - '0' < 0 || *ip_address > '9'){
-                    is_valid = 0;
-                }
-            }
+            ++*ip_address;
         }
+    }
+    else{
+        is_valid = 0;
     }
 
     return is_valid;
