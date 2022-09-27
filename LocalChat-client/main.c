@@ -5,7 +5,12 @@
 int main(int argc, char* argv[]) {
 
     if(argc == 4 && (strcmp(argv[2], "-j") == 0 || strcmp(argv[2], "-c") == 0)){
-        prepare_socket(argv[1]);
+        if(check_ip_format(argv[1])){
+            prepare_socket(argv[1]);
+        }
+        else{
+            printf("Ip-Address format: ddd.ddd.ddd.ddd");
+        }
     }
     else{
         printf("Usage: localchat [SERVER IP] [OPTION] [ID]\n");
