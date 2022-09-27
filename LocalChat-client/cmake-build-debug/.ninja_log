@@ -1,6 +1,0 @@
-# ninja log v5
-0	41	1664257881144248009	CMakeFiles/LocalChat_client.dir/main.c.o	3530f2532b09ff0f
-42	65	1664257881168248203	LocalChat_client	a294d12288a7bd97
-0	33	1664288345667267119	CMakeFiles/LocalChat_client.dir/main.c.o	3530f2532b09ff0f
-1	34	1664288345667267119	CMakeFiles/LocalChat_client.dir/connection.c.o	59ce96f782abbb94
-34	59	1664288345695267488	LocalChat_client	632c44d707d80faa
