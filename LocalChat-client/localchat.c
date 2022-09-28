@@ -28,4 +28,5 @@ int main(int argc, char* argv[]) {
         printf("OPTIONS: -j to join a chat with entered id\n         -c to create a chat with entered id");
     }
 
+    return 0;
 }

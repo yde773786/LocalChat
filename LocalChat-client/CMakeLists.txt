@@ -3,4 +3,4 @@ project(LocalChat_client C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(LocalChat_client main.c connection.c connection.h)
+add_executable(LocalChat_client localchat.c connection.c connection.h)
