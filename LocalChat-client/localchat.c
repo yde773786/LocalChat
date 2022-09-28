@@ -10,7 +10,7 @@ int main(int argc, char* argv[]) {
 
             // Possible errors on creating socket
             if(socket_fd == -1){
-                printf("Socket cannot be created");
+                printf("Socket could be created");
             }
             else if(socket_fd == -2){
                 printf("Could not assign socket to ip address \n");
