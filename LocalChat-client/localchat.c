@@ -10,12 +10,15 @@ int main(int argc, char* argv[]) {
 
             // Possible errors on creating socket
             if(socket_fd == -1){
+                perror("Error");
                 printf("Socket could be created");
             }
             else if(socket_fd == -2){
+                perror("Error");
                 printf("Could not assign socket to ip address \n");
             }
             else if(socket_fd == -3){
+                perror("Error");
                 printf("Could not connect to server \n");
             }
         }

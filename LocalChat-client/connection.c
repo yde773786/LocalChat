@@ -1,7 +1,6 @@
 #include <sys/socket.h>
 #include "connection.h"
 #include <netinet/in.h>
-#include <string.h>
 #include <arpa/inet.h>
 
 /*
@@ -18,6 +17,7 @@ int prepare_socket(char* ip_address){
     struct sockaddr_in address;
     address.sin_family = AF_INET;
     address.sin_port = htons(5000);
+    address.sin_addr.s_addr = INADDR_ANY;
 
     if(inet_pton(AF_INET, ip_address, &address.sin_addr) <= 0){
         return -2;
@@ -34,19 +34,14 @@ int prepare_socket(char* ip_address){
  * IPv4 dotted-decimal form
  */
 int check_ip_format(char* ip_address){
-    int is_valid = 1;
 
-    if(strlen(ip_address) == 15){
-        while(*ip_address != '\0'){
-            if(*ip_address != '.' || (*ip_address - '0' < 0 || *ip_address > '9')){
-                is_valid = 0;
-            }
-            ++*ip_address;
+    while(*ip_address != '\0'){
+        if(*ip_address != '.' && (*ip_address - '0' < 0 || *ip_address - '0' > '9')){
+            printf("%d", *ip_address - '0');
+            return 0;
         }
-    }
-    else{
-        is_valid = 0;
+        ip_address++;
     }
 
-    return is_valid;
+    return 1;
 }
